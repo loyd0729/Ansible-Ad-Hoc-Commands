@@ -1,0 +1,35 @@
+$ ansible rhel-1 -i /etc/ansible/inventory -b -m yum -a "name=links state=latest"  /here it will install elinks in rhel-1 host
+
+$  ansible rhel-1 -i /etc/ansible/inventory -b -m yum -a "name=links state=absent"  /here it will uninstall elinks in rhel-1 host
+
+$ ansible rhel-1 -i /etc/ansible/inventory -m file -a "path=/home/lbabay/newfile state=touch" /will create a new file (newfile) in rhel-1 (path=/home/lbabay/newfile)
+
+$ ansible rhel-1 -i /etc/ansible/inventory -m file -a "path=/home/lbabay/newfile" /will return the properties of newfile from rhel-1
+
+$ ansible rhel-1 -i /etc/ansible/inventory -m file -a "path=/home/lbabay/newfile mode=0400" /will change the property (mode=0400 /mode is chmod) from rhel-1 host (path=/home/lbabay/newfile) newfile 
+
+$ ansible rhel-1 -i /etc/ansible/inventory -b -m file -a "path=/home/lbabay/newfile owner=root" /will change owner of the file from rhel-1 host. Note that only privilege user can do this you must include (-b) to successfully changed the owner.
+
+$ ansible httpd -i /etc/ansible/inventory -b -m user -a "name=sam" /this will create user "sam" in all the hosts that's included in httpd group.
+
+$ ansible httpd -i /etc/ansible/inventory -b -m group -a "name=makulits" /this will add group (name=makulits) in all of the hosts that's included in httpd group.
+
+$ ansible httpd -i /etc/ansible/inventory -b -m user -a "name=isabella append=yes groups=wheel" / the user will be added in her secondary group.q
+
+$ ansible dev -i /etc/ansible/hosts -b -m file -a "path=/opt/scripts/lbabay state=directory" / this will create a directory to all the servers in dev group found in hosts file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
